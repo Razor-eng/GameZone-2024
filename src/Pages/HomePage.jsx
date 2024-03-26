@@ -11,7 +11,7 @@ const HomePage = () => {
             <div className="hidden md:block px-6 overflow-y-hidden hover:overflow-y-scroll border-r border-zinc-200 dark:border-zinc-800 h-[90vh]" id="scroll-1">
                 <GenreList setGenreId={setGenreId} setGenreName={setGenreName} />
             </div>
-            <div className="col-span-4 px-8 md:col-span-4 overflow-y-scroll scrollbar-none md:scrollbar" id="scroll-2">
+            <div className="col-span-5 px-8 md:col-span-4 overflow-y-scroll scrollbar-none md:scrollbar" id="scroll-2">
                 <Games genreId={genreId} genreName={genreName} />
             </div>
         </div>

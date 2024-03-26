@@ -15,7 +15,7 @@ const GamePage = () => {
                 <div className="flex flex-col gap-2">
                     <h2 className="dark:text-white text-2xl font-bold">{game.name}</h2>
                     <p className="text-lg dark:text-white">Released :
-                        <span className="text-sm font-semibold"> {game.released.split("-").reverse().join('-')}</span>
+                        <span className="text-sm"> {game.released.split("-").reverse().join('-')}</span>
                     </p>
                     <p className="text-lg dark:text-white">Genre :
                         {game.genres.map((genre, id) => (
