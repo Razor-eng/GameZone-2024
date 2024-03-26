@@ -9,7 +9,7 @@ const GamePage = () => {
     }, [])
 
     return (
-        <div className="h-[90vh] overflow-scroll lg:overflow-hidden border-t border-zinc-200 dark:border-zinc-800 p-10">
+        <div className="h-[90vh] overflow-scroll lg:overflow-hidden border-t bg-zinc-100 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 p-10">
             <div className="flex gap-4 flex-col lg:flex-row mt-0 sm:mt-5">
                 <img src={game.background_image} alt="game image" className="w-auto h-96" />
                 <div className="flex flex-col gap-2">

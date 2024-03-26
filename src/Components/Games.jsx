@@ -6,25 +6,30 @@ import Trending from "./Trending";
 import GamesByGenres from "./GamesByGenres";
 import { useNavigate } from "react-router-dom";
 import { GameContext } from "../Context/GameContext";
+import { Circles } from "react-loader-spinner";
 
 const Games = ({ genreId, genreName }) => {
     const [gameList, setGameList] = useState([]);
     const [genreGameList, setGenreGameList] = useState([]);
     const { setGame } = useContext(GameContext);
+    const [loading, setLoading] = useState(false);
 
     const getAllGamesList = () => {
         GlobalApi.getAllGames.then((resp) => {
             setGameList(resp.data.results);
             setGenreGameList(resp.data.results);
+            setLoading(false);
         })
     }
     const getGameListByGenreId = (id) => {
         GlobalApi.getGameListByGenreId(id).then((resp) => {
             setGameList(resp.data.results);
             setGenreGameList(resp.data.results);
+            setLoading(false);
         })
     }
     useEffect(() => {
+        setLoading(true);
         if (genreId === 0) {
             getAllGamesList();
         } else {
@@ -45,8 +50,9 @@ const Games = ({ genreId, genreName }) => {
 
     return (
         <div>
-            {
-                (gameList?.length > 0 && genreGameList?.length > 0) ? (
+            {!loading ? (
+                (
+                    gameList?.length > 0 && genreGameList?.length > 0) ? (
                     <div>
                         <Banner gameBanner={gameList[0]} />
                         <Trending gameList={gameList} gamePage={gamePage} />
@@ -60,7 +66,17 @@ const Games = ({ genreId, genreName }) => {
                         </h2>
                     </div>
                 )
-            }
+            ) : (
+                <div className="flex flex-col justify-center items-center h-[90vh]">
+                    <Circles
+                        width={70}
+                        height={70}
+                        color="blue"
+                        ariaLabel="Loading..."
+                    />
+                    <h2 className="dark:text-white text-2xl font-semibold mt-3">Loading...</h2>
+                </div>
+            )}
         </div>
     )
 }
