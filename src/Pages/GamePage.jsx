@@ -11,7 +11,7 @@ const GamePage = () => {
     return (
         <div className="h-[90vh] overflow-scroll lg:overflow-hidden border-t bg-zinc-100 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 p-10">
             <div className="flex gap-4 flex-col lg:flex-row mt-0 sm:mt-5">
-                <img src={game.background_image} alt="game image" className="w-auto h-96" />
+                <img src={game.background_image} alt="game image" className="w-auto h-96 rounded-lg" />
                 <div className="flex flex-col gap-2">
                     <h2 className="dark:text-white text-2xl font-bold">{game.name}</h2>
                     <p className="text-lg dark:text-white">Released :
@@ -34,7 +34,7 @@ const GamePage = () => {
                             <h2 className="dark:text-white text-lg underline underline-offset-4">Screenshots:</h2>
                             <div className="flex gap-6 flex-wrap">
                                 {game.short_screenshots.map((screenshot, id) => id !== 0 && (
-                                    <img key={id} src={screenshot.image} alt="screenshot" className="w-48 object-contain" />
+                                    <img key={id} src={screenshot.image} alt="screenshot" className="w-48 object-contain rounded-md" />
                                 ))}
                             </div>
                         </div>
