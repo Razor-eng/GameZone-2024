@@ -9,10 +9,12 @@ const GamePage = () => {
     }, [])
 
     return (
-        <div className="h-[90vh] overflow-scroll lg:overflow-hidden border-t bg-zinc-100 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 p-10">
+        <div className="h-[90vh] w-[100vw] overflow-scroll lg:overflow-hidden border-t bg-zinc-100 dark:bg-zinc-900 border-zinc-200 dark:border-zinc-800 md:p-10">
             <div className="flex gap-4 flex-col lg:flex-row mt-0 sm:mt-5">
-                <img src={game.background_image} alt="game image" className="w-auto h-96 rounded-lg" />
-                <div className="flex flex-col gap-2">
+                <div className="md:w-full w-[100vw] bg-zinc-200 dark:bg-zinc-800 p-2 shadow-md rounded-lg shadow-zinc-800 dark:shadow-zinc-200">
+                    <img src={game.background_image} alt="game image" className="w-full h-full rounded-lg" />
+                </div>
+                <div className="flex flex-col gap-2 pl-2 md:pl-0">
                     <h2 className="dark:text-white text-2xl font-bold">{game.name}</h2>
                     <p className="text-lg dark:text-white">Released :
                         <span className="text-sm"> {game.released.split("-").reverse().join('-')}</span>
@@ -30,7 +32,7 @@ const GamePage = () => {
                     </p>
                     {
                         game.short_screenshots &&
-                        <div className="mt-2 flex flex-col gap-4">
+                        <div className="mt-2 flex flex-col gap-2">
                             <h2 className="dark:text-white text-lg underline underline-offset-4">Screenshots:</h2>
                             <div className="flex gap-6 flex-wrap">
                                 {game.short_screenshots.map((screenshot, id) => id !== 0 && (
